@@ -7,7 +7,7 @@ export const journalsQueries = {
         `,
 
     readJournalsByUserId: `
-        SELECT 
+         SELECT 
             id AS journalId,
             userfk AS userId,
             location AS location,
@@ -15,7 +15,7 @@ export const journalsQueries = {
             description AS description,
             feedback AS feedback
         FROM zoojournal.journals
-        WHERE userfk = ?
+        WHERE zoojournal.journals.userfk = ?
         `,
 
     readJournalsByJournalId: `

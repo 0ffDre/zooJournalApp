@@ -15,11 +15,9 @@ const app = express();
 const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/', [usersRouter, journalsRouter]);
 
-app.listen(port, () => {
-    console.log('Example app listening at http://localhost:${port}')
-});
+
+
 
 //Parse JSON bodies
 app.use(express.json());
@@ -39,7 +37,11 @@ app.use(helmet());
 
 dotenv.config({ path: "C:/Users/andre/OneDrive/Documents/23 24 school senior year/CST-391/Milestones/Milestone-03/.env" });
 
+app.use('/', [usersRouter, journalsRouter]);
 
+app.listen(port, () => {
+    console.log('Example app listening at http://localhost:${port}')
+});
 
 
 

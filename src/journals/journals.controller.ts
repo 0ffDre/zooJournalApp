@@ -28,6 +28,22 @@ export const readJournals: RequestHandler = async (req: Request, res: Response) 
     }
 };
 
+export const readJournalByUserId: RequestHandler = async (req: Request, res: Response) => {
+    try {
+        const journals = await JournalsDao.readJournalsByUserId(req.params.userfk);
+        console.log(req.params)
+
+        res.status(200).json(
+            journals
+        );
+    } catch (error) {
+        console.error('[journals.controller][readJournals][Error] ', error);
+        res.status(500).json({
+            message: 'There was an error when fetching journals by userId'
+        });
+    }
+};
+
 export const readJournalByLocation: RequestHandler = async (req: Request, res: Response) => {
     try {
         const journals = await JournalsDao.readJournalsByLocation(req.params.location);

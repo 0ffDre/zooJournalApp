@@ -7,12 +7,17 @@ router.
     get(JournalsController.readJournals);
 
 router.
+    route('/journals/:userfk/').
+    get(JournalsController.readJournalByUserId);
+
+router.
     route('/journals/:location').
     get(JournalsController.readJournalByLocation);
 
 router.
     route('/journals/:search/location/:search').
     get(JournalsController.readJournalsByLocationSearch);
+
 
 router.
     route('/journals').
